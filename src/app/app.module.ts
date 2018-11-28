@@ -10,6 +10,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {Vibration} from '@ionic-native/vibration';
+import {DeviceOrientation, DeviceOrientationCompassHeading} from '@ionic-native/device-orientation';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    Vibration,
+    DeviceOrientation,
+    DeviceOrientationCompassHeading,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
