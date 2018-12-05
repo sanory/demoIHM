@@ -16,7 +16,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {Vibration} from '@ionic-native/vibration';
 import {DeviceOrientation, DeviceOrientationCompassHeading} from '@ionic-native/device-orientation';
 import { QRScanner } from '@ionic-native/qr-scanner';
-import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
