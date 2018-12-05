@@ -1,5 +1,21 @@
-<ion-tabs>
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button [menuToggle]="menu1">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Menu
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+  <ion-tabs>
   <ion-tab [root]="tab1Root" tabTitle="Détecteur" tabIcon="md-barcode"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="Ma position" tabIcon="locate"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Coffre" tabIcon="md-help"></ion-tab>
-</ion-tabs>
+    <ion-tab [root]="tab3Root" tabTitle="Coffre" tabIcon="md-help"></ion-tab>
+    <ion-tab [root]="tab4Root" tabTitle="Inventaire" tabIcon="locate"></ion-tab>
+
+  </ion-tabs>

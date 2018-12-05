@@ -20,28 +20,32 @@ import { InventoryProvider } from '../../providers/inventory/inventory';
 export class VibrationPage {
   a = 0;
 
-  constructor(public navCtrl: NavController, 
-  public navParams: NavParams, 
-  private vibration: Vibration, 
-  private deviceOrientation: DeviceOrientation, 
-  private qrScanner: QRScanner, 
+  constructor(public navCtrl: NavController,
+  public navParams: NavParams,
+  private vibration: Vibration,
+  private deviceOrientation: DeviceOrientation,
+  private qrScanner: QRScanner,
   private inventoryProvider :InventoryProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VibrationPage');
   }
-    
+
+  doClick() {
+      alert("click");
+    }
+
   compassData: DeviceOrientationCompassHeading;
-    
+
   VibrationPatternChanger(){
       // Get the device current compass heading
       this.deviceOrientation.getCurrentHeading().then(
       (data: DeviceOrientationCompassHeading) => this.compassData=data,
       (error: any) => console.log(error)
        );
-      
-         while(1){ 
+
+         while(1){
              // Watch the device compass heading change
              this.deviceOrientation.getCurrentHeading().then(
              (data: DeviceOrientationCompassHeading) => this.compassData=data
@@ -82,7 +86,7 @@ export class VibrationPage {
             .then((status: QRScannerStatus) => {
                 if (status.authorized) {
                     let scanSub = this.qrScanner.scan().subscribe((text: string) => {
-                        this.inventoryProvider.allowAcces();          
+                        this.inventoryProvider.allowAcces();
                         this.qrScanner.hide(); // hide camera preview
                         scanSub.unsubscribe(); // stop scanning
                     });
@@ -95,17 +99,16 @@ export class VibrationPage {
                 }
              })
              .catch((e: any) => console.log('Error is', e));
-          }            
+          }
        }
-           
-    
-    
-    
-    
- 
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+

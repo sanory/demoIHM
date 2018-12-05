@@ -8,7 +8,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { VibrationPage } from '../pages/vibration/vibration';
-
+import { InventoryPage } from '../pages/inventory/inventory';
 import { LeafletPage } from '../pages/leaflet/leaflet';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -27,7 +27,8 @@ import { InventoryProvider } from '../providers/inventory/inventory';
     TabsPage,
     LeafletPage,
     TabsPage,
-    VibrationPage
+    VibrationPage,
+    InventoryPage
   ],
   imports: [
     BrowserModule,
@@ -42,12 +43,12 @@ import { InventoryProvider } from '../providers/inventory/inventory';
     TabsPage,
     VibrationPage,
     TabsPage,
-    LeafletPage
+    LeafletPage,
+    InventoryPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    Geolocation,
     Vibration,
     DeviceOrientation,
     QRScanner,

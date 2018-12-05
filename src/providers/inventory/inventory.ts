@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
@@ -9,21 +8,21 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class InventoryProvider {
-        
+
   doc = false;
 
-  constructor(public http: HttpClient) {
+  constructor() {
     console.log('Hello InventoryProvider Provider');
   }
-    
+
   allowAcces(){
       this.doc=true;
   }
-    
+
   resetAcces(){
       this.doc=false;
   }
-  
+
   getAcces(){
       return this.doc;
   }
