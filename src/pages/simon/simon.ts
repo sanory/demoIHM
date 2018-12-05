@@ -73,6 +73,13 @@ export class SimonPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  isColor(col : number, index : number):boolean{
+    console.log("isColor ");
+    console.log(index);
+    console.log(this.sequence[index]==col);
+    return (this.sequence[index]==col);
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad SimonPage');
   }
