@@ -11,20 +11,20 @@ export class LeafletPage {
       @ViewChild('map') mapContainer: ElementRef;
       map: any;
       center: L.PointTuple;
-    
+
       constructor(public navCtrl: NavController, public navParams: NavParams) {
       }
-    
+
       ionViewDidEnter() {
             this.loadmap();
       }
-    
+
     centerLeafletMapOnMarker(map, marker) {
       let latLngs = [ marker.getLatLng() ];
       let markerBounds = L.latLngBounds(latLngs);
       map.fitBounds(markerBounds);
     }
-    
+
      loadmap() {
         this.map = L.map("map").fitWorld();
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -42,7 +42,7 @@ export class LeafletPage {
         this.centerLeafletMapOnMarker(this.map, marker);
         console.log(this.map.getZoom());
       })
-      let circle = L.circle(marker.getLatLng(), 150).addTo(this.map);
+      L.circle(marker.getLatLng(), 150).addTo(this.map);
       markerGroup.addLayer(marker);
       this.map.addLayer(markerGroup);
       }).on('locationerror', (err) => {
