@@ -11,6 +11,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CameraPage } from '../pages/camera/camera';
+import { SimonPage } from '../pages/simon/simon';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CameraPage } from '../pages/camera/camera';
     ContactPage,
     HomePage,
     CameraPage,
+    SimonPage,
     TabsPage
   ],
   imports: [
@@ -32,6 +34,7 @@ import { CameraPage } from '../pages/camera/camera';
     ContactPage,
     HomePage,
     CameraPage,
+    SimonPage,
     TabsPage
   ],
   providers: [

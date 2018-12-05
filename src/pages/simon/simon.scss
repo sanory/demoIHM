@@ -1,0 +1,42 @@
+page-simon {
+
+}
+
+.myGrid{
+    display: grid;
+    grid-gap: 10px;
+    padding: 0px;
+    height: 220px;
+    width: 223px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.item1{
+    grid-column: 1;
+    grid-row: 1;
+    height: 100px;
+    width: 100px;
+}
+
+.item2{
+    grid-column: 2;
+    grid-row: 1;
+    height: 100px;
+    width: 100px;
+}
+
+.item3{
+    grid-column: 1;
+    grid-row: 2;
+    height: 100px;
+    width: 100px;
+}
+
+.item4{
+    grid-column: 2;
+    grid-row: 2;
+    height: 100px;
+    width: 100px;
+}
+
