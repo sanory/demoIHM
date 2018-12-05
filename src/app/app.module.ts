@@ -7,10 +7,15 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { VibrationPage } from '../pages/vibration/vibration';
+
 import { LeafletPage } from '../pages/leaflet/leaflet';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {Vibration} from '@ionic-native/vibration';
+import {DeviceOrientation, DeviceOrientationCompassHeading} from '@ionic-native/device-orientation';
+import { QRScanner } from '@ionic-native/qr-scanner';
 import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
@@ -20,7 +25,9 @@ import { Geolocation } from '@ionic-native/geolocation';
     ContactPage,
     HomePage,
     TabsPage,
-    LeafletPage
+    LeafletPage,
+    TabsPage,
+    VibrationPage
   ],
   imports: [
     BrowserModule,
@@ -33,12 +40,17 @@ import { Geolocation } from '@ionic-native/geolocation';
     ContactPage,
     HomePage,
     TabsPage,
+    VibrationPage,
+    TabsPage,
     LeafletPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
+    Vibration,
+    DeviceOrientation,
+    QRScanner,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
