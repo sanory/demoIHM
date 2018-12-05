@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Vibration } from '@ionic-native/vibration';
 import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation';
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 
 /**
  * Generated class for the VibrationPage page.
@@ -17,7 +18,7 @@ import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-nativ
 })
 export class VibrationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private vibration: Vibration, private deviceOrientation: DeviceOrientation) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private vibration: Vibration, private deviceOrientation: DeviceOrientation, private qrScanner: QRScanner) {
   }
 
   ionViewDidLoad() {
@@ -46,7 +47,16 @@ export class VibrationPage {
              this.vibration.vibrate([1000,500,1000,500]);
           }else{
              this.vibration.vibrate([1000,100,1000]);
-          }              
+//              this.qrScanner.prepare()
+//                .then((status: QRScannerStatus) => {
+//                if (status.authorized) {
+//                    let scanSub = this.qrScanner.scan().subscribe((text: string) => {
+//                     console.log('Scanned something', text);            
+//                     this.qrScanner.hide(); // hide camera preview
+//                     scanSub.unsubscribe(); // stop scanning
+//                     });
+//                    }
+//          }              
           
           }
       }
