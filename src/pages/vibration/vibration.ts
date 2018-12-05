@@ -56,7 +56,7 @@ export class VibrationPage {
 //                     scanSub.unsubscribe(); // stop scanning
 //                     });
 //                    }
-//          }              
+          }              
           
           }
       }
