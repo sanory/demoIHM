@@ -9,10 +9,12 @@ import { TabsPage } from '../tabs/tabs';
 })
 
 export class HomePage {
+  title: any;
+
 
   constructor(public navCtrl: NavController){}
 
-    
+
     goToPage(){
       this.navCtrl.push(TabsPage);
   }

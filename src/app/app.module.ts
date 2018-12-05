@@ -17,6 +17,8 @@ import {Vibration} from '@ionic-native/vibration';
 import {DeviceOrientation, DeviceOrientationCompassHeading} from '@ionic-native/device-orientation';
 import { QRScanner } from '@ionic-native/qr-scanner';
 import { InventoryProvider } from '../providers/inventory/inventory';
+import { CameraPage } from '../pages/camera/camera';
+import { SimonPage } from '../pages/simon/simon';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,11 @@ import { InventoryProvider } from '../providers/inventory/inventory';
     HomePage,
     TabsPage,
     LeafletPage,
-    TabsPage,
     VibrationPage,
-    InventoryPage
+    InventoryPage,
+    CameraPage,
+    SimonPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -40,11 +44,13 @@ import { InventoryProvider } from '../providers/inventory/inventory';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
     VibrationPage,
     TabsPage,
     LeafletPage,
-    InventoryPage
+    InventoryPage,
+    CameraPage,
+    SimonPage,
+    TabsPage
   ],
   providers: [
     StatusBar,

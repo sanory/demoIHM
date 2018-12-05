@@ -11,6 +11,8 @@ export class LeafletPage {
     @ViewChild('map') mapContainer: ElementRef;
     map: any;
     center: L.PointTuple;
+     title: any;
+
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
     }

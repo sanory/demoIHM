@@ -86,4 +86,6 @@
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
     <engine name="android" spec="7.1.4" />
+    <plugin name="cordova-plugin-camera" spec="4.0.3" />
+    <engine name="android" spec="~7.1.4" />
 </widget>

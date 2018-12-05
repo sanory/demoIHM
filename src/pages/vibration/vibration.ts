@@ -18,6 +18,7 @@ import { InventoryProvider } from '../../providers/inventory/inventory';
   templateUrl: 'vibration.html',
 })
 export class VibrationPage {
+  title: any;
   a = 0;
 
   constructor(public navCtrl: NavController,
@@ -26,6 +27,7 @@ export class VibrationPage {
   private deviceOrientation: DeviceOrientation,
   private qrScanner: QRScanner,
   private inventoryProvider :InventoryProvider) {
+    this.title = 'YOLO'
   }
 
   ionViewDidLoad() {
