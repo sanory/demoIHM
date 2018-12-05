@@ -15,6 +15,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {Vibration} from '@ionic-native/vibration';
 import {DeviceOrientation, DeviceOrientationCompassHeading} from '@ionic-native/device-orientation';
 import { QRScanner } from '@ionic-native/qr-scanner';
+import { InventoryProvider } from '../providers/inventory/inventory';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { QRScanner } from '@ionic-native/qr-scanner';
     Vibration,
     DeviceOrientation,
     QRScanner,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    InventoryProvider
   ]
 })
 export class AppModule {}
