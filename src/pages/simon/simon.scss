@@ -45,7 +45,7 @@ page-simon {
     display: none;
 }
 
-#circle {
+.circle {
     width: 45px;
     height: 45px;
     margin : auto;
@@ -53,6 +53,7 @@ page-simon {
     -moz-border-radius: 25px;
     border-radius: 25px;
     background: rgb(255, 255, 255);
+    display:inline-block;
 }
 
 #sequenceContainer {
@@ -64,5 +65,18 @@ page-simon {
     -moz-border-radius: 25px;
     border-radius: 25px;
     background: rgb(241, 241, 241);
+}
+
+.blue{
+    background: #488aff;
+}
+.red{
+    background: #f53d3d;
+}
+.green{
+    background: #32db64
+}
+.yellow{
+    background: yellow;
 }
 
