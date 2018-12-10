@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class InventoryProvider {
 
-  doc = false;
+  doc = true;
 
   constructor() {
     console.log('Hello InventoryProvider Provider');

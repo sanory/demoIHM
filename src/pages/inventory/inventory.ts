@@ -17,14 +17,13 @@ import { InventoryProvider } from '../../providers/inventory/inventory';
 })
 export class InventoryPage {
   access : boolean;
-    title: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private inventoryProvider :InventoryProvider) {
 
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.access= this.inventoryProvider.getAcces();
     console.log('ionViewDidLoad InventoryPage');
   }

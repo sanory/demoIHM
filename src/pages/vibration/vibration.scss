@@ -1,3 +1,50 @@
 page-vibration {
 
+.red{
+    width: 45px;
+    height: 45px;
+    margin : auto;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: rgb(255, 0, 0);
+}
+.orange{
+    width: 45px;
+    height: 45px;
+    margin : auto;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: rgb(255,165,0);
+}
+.yellow{
+    width: 45px;
+    height: 45px;
+    margin : auto;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: rgb(255,215,0);
+}
+.green{
+    width: 45px;
+    height: 45px;
+    margin : auto;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: rgb(0, 255, 0);
+}
+.b{
+margin-left: auto;
+margin-right: auto;
+}
+}
+.this{
+    height: 45px;
+    margin: 45px 0px; 
+    position:relative;
+    top:50%; 
+    left:25%;
 }

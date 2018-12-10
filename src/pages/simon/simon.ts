@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
+import { InventoryProvider } from '../../providers/inventory/inventory';
+import { HomePage } from '../home/home';
+
+
+
 
 /**
  * Generated class for the SimonPage page.
@@ -59,22 +65,63 @@ export class SimonPage {
     }
 
     if(equals){
-      this.success = true;
-      this.fail = false;
+        this.winAlerte();
+//      this.success = true;
+//      this.fail = false;
+        
       this.sequence = [];
     }
     else{
-      this.success = false;
-      this.fail = true;
+        this.looseAlerte();
+//      this.success = false;
+//      this.fail = true;
       this.sequence = [];
     }
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private inventoryProvider :InventoryProvider) {
+  }
+
+  isColor(col : number, index : number):boolean{
+    console.log("isColor ");
+    console.log(index);
+    console.log(this.sequence[index]==col);
+    return (this.sequence[index]==col);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SimonPage');
   }
+    
+    winAlerte() {
+    const alert = this.alertCtrl.create({
+      title: 'Vous avez gagné!',
+      subTitle: 'Félicitations pour avoir réussi cette épreuve!',
+      buttons: [
+         {
+          text: 'Terminer l\'épreuve',
+          handler: () => {
+                this.restart()
+                    }
+        }
+       ]
+    });
+    alert.present();
+  }
+    
+    looseAlerte() {
+    const alert = this.alertCtrl.create({
+      title: 'Mauvaise combinaison...',
+      subTitle: 'Avez vous trouvé l\'indice grace au détecteur? Si oui, vous devriez peut être le relire...!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+    
+    restart(){
+        this.inventoryProvider.resetAcces();
+        }
+    
+
 
 }
