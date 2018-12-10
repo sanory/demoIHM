@@ -23,7 +23,7 @@ export class InventoryPage {
 
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.access= this.inventoryProvider.getAcces();
     console.log('ionViewDidLoad InventoryPage');
   }
