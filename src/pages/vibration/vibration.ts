@@ -24,7 +24,6 @@ export class VibrationPage {
   isO=false;
   isY=false;
   isG=false;
-  i : any;
 
   constructor(public navCtrl: NavController,
   public navParams: NavParams,
@@ -52,7 +51,7 @@ export class VibrationPage {
       (error: any) => console.log(error)
        );
 
-         for(i=0;i<10;i++){
+         for(let i=0;i<10;i++){
              // Watch the device compass heading change
              this.deviceOrientation.getCurrentHeading().then(
              (data: DeviceOrientationCompassHeading) => this.compassData=data
