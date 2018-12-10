@@ -88,7 +88,6 @@ export class VibrationPage {
                  this.a=0;
                  this.vibration.vibrate([1000,1250,1000,1250]);
               }else if(this.compassData.headingAccuracy > 60 && this.compassData.headingAccuracy < 295){
-
                  this.a=0;
                  this.vibration.vibrate([1000,1000,1000,1000]);
               }else if(this.compassData.headingAccuracy > 45 && this.compassData.headingAccuracy < 310){
@@ -100,10 +99,8 @@ export class VibrationPage {
                  this.isY=false;
                  this.isG=true;
                  this.a=this.a+1;
-                 this.vibration.vibrate([1000,100,1000]);
-                 if(this.a>2){
-                     this.scan();
-                 }
+                 this.vibration.vibrate([1000,100,1000,100]);
+                 this.scan();
               }
           }
          
