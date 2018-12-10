@@ -24,6 +24,7 @@ export class VibrationPage {
   isO=false;
   isY=false;
   isG=false;
+  i : any;
 
   constructor(public navCtrl: NavController,
   public navParams: NavParams,
@@ -51,7 +52,7 @@ export class VibrationPage {
       (error: any) => console.log(error)
        );
 
-         while(1){
+         for(i=0;i<10;i++){
              // Watch the device compass heading change
              this.deviceOrientation.getCurrentHeading().then(
              (data: DeviceOrientationCompassHeading) => this.compassData=data
@@ -102,11 +103,15 @@ export class VibrationPage {
                  this.a=this.a+1;
                  this.vibration.vibrate([1000,100,1000]);
                  if(this.a>2){
-                     break;
+                     this.scan();
                  }
               }
           }
-         this.qrScanner.prepare()
+         
+          }
+    
+    scan(){
+        this.qrScanner.prepare()
             .then((status: QRScannerStatus) => {
                 if (status.authorized) {
                     let scanSub = this.qrScanner.scan().subscribe((text: string) => {
@@ -123,7 +128,7 @@ export class VibrationPage {
                 }
              })
              .catch((e: any) => console.log('Error is', e));
-          }
+        }
        }
 
 
