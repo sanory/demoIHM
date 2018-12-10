@@ -7,13 +7,14 @@ import { TabsPage } from '../tabs/tabs';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
+  title: any;
 
-  constructor(public navCtrl: NavController) {
 
-  }
+  constructor(public navCtrl: NavController){}
 
-    
+
     goToPage(){
       this.navCtrl.push(TabsPage);
   }

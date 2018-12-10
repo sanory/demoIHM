@@ -8,7 +8,8 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { VibrationPage } from '../pages/vibration/vibration';
-
+import { InventoryPage } from '../pages/inventory/inventory';
+import { LeafletPage } from '../pages/leaflet/leaflet';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,6 +17,8 @@ import {Vibration} from '@ionic-native/vibration';
 import {DeviceOrientation, DeviceOrientationCompassHeading} from '@ionic-native/device-orientation';
 import { QRScanner } from '@ionic-native/qr-scanner';
 import { InventoryProvider } from '../providers/inventory/inventory';
+import { CameraPage } from '../pages/camera/camera';
+import { SimonPage } from '../pages/simon/simon';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,12 @@ import { InventoryProvider } from '../providers/inventory/inventory';
     ContactPage,
     HomePage,
     TabsPage,
-    VibrationPage
+    LeafletPage,
+    VibrationPage,
+    InventoryPage,
+    CameraPage,
+    SimonPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -36,8 +44,13 @@ import { InventoryProvider } from '../providers/inventory/inventory';
     AboutPage,
     ContactPage,
     HomePage,
+    VibrationPage,
     TabsPage,
-    VibrationPage    
+    LeafletPage,
+    InventoryPage,
+    CameraPage,
+    SimonPage,
+    TabsPage
   ],
   providers: [
     StatusBar,
