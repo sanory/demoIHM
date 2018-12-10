@@ -45,7 +45,7 @@ export class LeafletPage {
         this.centerLeafletMapOnMarker(this.map, marker);
             console.log(this.map.getZoom());
         })
-        L.circle(marker.getLatLng(), 150).addTo(this.map);
+        L.circle(marker.getLatLng(), 50).addTo(this.map);
         markerGroup.addLayer(marker);
         this.map.addLayer(markerGroup);
         }).on('locationerror', (err) => {

@@ -22,7 +22,7 @@ export class VibrationPage {
   a = 0;
   isR=false;
   isO=false;
-  isY=true;
+  isY=false;
   isG=false;
 
   constructor(public navCtrl: NavController,
