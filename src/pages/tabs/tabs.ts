@@ -23,6 +23,6 @@ export class TabsPage {
 
 
   constructor() {
-    this.title = 'yolo';
+    this.title = 'Epreuve de démo';
   }
 }

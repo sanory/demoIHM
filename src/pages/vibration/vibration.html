@@ -16,6 +16,12 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="b">
+<button ion-button color="light" (click)="VibrationPatternChanger()" class="this">Lancer la recherche</button>
+<div class="red" [hidden]="!isR"></div>
+<div class="orange" [hidden]="!isO"></div>
+<div class="yellow" [hidden]="!isY"></div>
+<div class="green" [hidden]="!isG"></div>
+
 
 </ion-content>

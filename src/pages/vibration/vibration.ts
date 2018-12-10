@@ -20,6 +20,10 @@ import { InventoryProvider } from '../../providers/inventory/inventory';
 export class VibrationPage {
   title: any;
   a = 0;
+  isR=false;
+  isO=false;
+  isY=true;
+  isG=false;
 
   constructor(public navCtrl: NavController,
   public navParams: NavParams,
@@ -27,7 +31,7 @@ export class VibrationPage {
   private deviceOrientation: DeviceOrientation,
   private qrScanner: QRScanner,
   private inventoryProvider :InventoryProvider) {
-    this.title = 'YOLO'
+    this.title = 'Epreuve Démo'
   }
 
   ionViewDidLoad() {
@@ -40,7 +44,7 @@ export class VibrationPage {
 
   compassData: DeviceOrientationCompassHeading;
 
-  VibrationPatternChanger(){
+  VibrationPatternChanger(){        
       // Get the device current compass heading
       this.deviceOrientation.getCurrentHeading().then(
       (data: DeviceOrientationCompassHeading) => this.compassData=data,
@@ -54,29 +58,47 @@ export class VibrationPage {
              );
               if(this.compassData.headingAccuracy > 150 && this.compassData.headingAccuracy < 210){
                  this.a=0;
+                 this.isR=true;
+                 this.isO=false;
+                 this.isY=false;
+                 this.isG=false;
                  this.vibration.vibrate([1000,3000,1000,3000]);
               }else if(this.compassData.headingAccuracy > 135 && this.compassData.headingAccuracy < 225){
                  this.a=0;
                  this.vibration.vibrate([1000,2500,1000,2500]);
               }else if(this.compassData.headingAccuracy > 120 && this.compassData.headingAccuracy < 240){
-                 this.a=0;
+                 this.a=0;                 
                  this.vibration.vibrate([1000,2000,1000,2000]);
               }else if(this.compassData.headingAccuracy > 105 && this.compassData.headingAccuracy < 255){
+                 this.isR=false;
+                 this.isO=true;
+                 this.isY=false;
+                 this.isG=false;
                  this.a=0;
                  this.vibration.vibrate([1000,1750,1000,1750]);
               }else if(this.compassData.headingAccuracy > 90 && this.compassData.headingAccuracy < 270){
+                 
                  this.a=0;
                  this.vibration.vibrate([1000,1500,1000,1500]);
               }else if(this.compassData.headingAccuracy > 75 && this.compassData.headingAccuracy < 280){
+                 this.isR=false;
+                 this.isO=false;
+                 this.isY=true;
+                 this.isG=false;
                  this.a=0;
                  this.vibration.vibrate([1000,1250,1000,1250]);
               }else if(this.compassData.headingAccuracy > 60 && this.compassData.headingAccuracy < 295){
+
                  this.a=0;
                  this.vibration.vibrate([1000,1000,1000,1000]);
               }else if(this.compassData.headingAccuracy > 45 && this.compassData.headingAccuracy < 310){
                  this.a=0;
                  this.vibration.vibrate([1000,500,1000,500]);
               }else{
+                 this.isR=false;
+                 this.isO=false;
+                 this.isY=false;
+                 this.isG=true;
                  this.a=this.a+1;
                  this.vibration.vibrate([1000,100,1000]);
                  if(this.a>2){
