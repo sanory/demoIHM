@@ -49,7 +49,6 @@ export class SimonPage {
     this.sequence.forEach((col : Color) => {
             result = result + col;
     });
-    console.log(result);
   }
 
   checkSequence(){
@@ -83,9 +82,6 @@ export class SimonPage {
   }
 
   isColor(col : number, index : number):boolean{
-    console.log("isColor ");
-    console.log(index);
-    console.log(this.sequence[index]==col);
     return (this.sequence[index]==col);
   }
 
