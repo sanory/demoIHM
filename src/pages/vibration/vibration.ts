@@ -63,7 +63,6 @@ constructor(public navCtrl: NavController,
   VibrationPatternChanger() {
     console.log("Vibrate");
     this.isRunning = true;
-
 }
 
 launchPattern1() {

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { InventoryProvider } from '../../providers/inventory/inventory';
 import { HomePage } from '../home/home';
+import { Vibration } from '@ionic-native/vibration';
 
 
 
@@ -35,6 +36,7 @@ export class SimonPage {
   addToSequence(col : number){
     this.sequence.push(col);
     this.readSequence();
+    this.vibration.vibrate([300]);
     if(this.fail || this.success){
       this.success = false;
       this.fail = false;
@@ -64,6 +66,7 @@ export class SimonPage {
     }
 
     if(equals){
+        this.vibration.vibrate([1000,100,1000,100,1000,100,1000]);
         this.winAlerte();
 //      this.success = true;
 //      this.fail = false;
@@ -71,6 +74,7 @@ export class SimonPage {
       this.sequence = [];
     }
     else{
+        this.vibration.vibrate([1000,500,1000]);
         this.looseAlerte();
 //      this.success = false;
 //      this.fail = true;
@@ -78,7 +82,7 @@ export class SimonPage {
     }
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private inventoryProvider :InventoryProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,private vibration: Vibration, private inventoryProvider :InventoryProvider) {
   }
 
   isColor(col : number, index : number):boolean{
