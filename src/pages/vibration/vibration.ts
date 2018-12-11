@@ -66,41 +66,41 @@ export class VibrationPage {
     window.addEventListener("deviceorientation",processEvent, true);      
             
             
-    if((360 — event.alpha) > 150 && (360 — event.alpha) < 210){
+    if((360 - event.alpha) > 150 && (360 - event.alpha) < 210){
         this.a=0;
         this.isR=true;
         this.isO=false;
         this.isY=false;
         this.isG=false;
         this.vibration.vibrate([1000,3000,1000,3000]);
-    }else if(data.headingAccuracy > 135 && (360 — event.alpha) < 225){
+    }else if(data.headingAccuracy > 135 && (360 - event.alpha) < 225){
         this.a=0;
         this.vibration.vibrate([1000,2500,1000,2500]);
-    }else if((360 — event.alpha) > 120 && (360 — event.alpha) < 240){
+    }else if((360 - event.alpha) > 120 && (360 - event.alpha) < 240){
         this.a=0;                 
         this.vibration.vibrate([1000,2000,1000,2000]);
-    }else if((360 — event.alpha) > 105 && (360 — event.alpha) < 255){
+    }else if((360 - event.alpha) > 105 && (360 - event.alpha) < 255){
         this.isR=false;
         this.isO=true;
         this.isY=false;
         this.isG=false;
         this.a=0;
         this.vibration.vibrate([1000,1750,1000,1750]);
-    }else if((360 — event.alpha) > 90 && (360 — event.alpha) < 270){
+    }else if((360 - event.alpha) > 90 && (360 - event.alpha) < 270){
          
         this.a=0;
         this.vibration.vibrate([1000,1500,1000,1500]);
-    }else if((360 — event.alpha) > 75 && (360 — event.alpha) < 280){
+    }else if((360 - event.alpha) > 75 && (360 - event.alpha) < 280){
         this.isR=false;
         this.isO=false;
         this.isY=true;
         this.isG=false;
         this.a=0;
         this.vibration.vibrate([1000,1250,1000,1250]);
-    }else if((360 — event.alpha) > 60 && (360 — event.alpha) < 295){
+    }else if((360 - event.alpha) > 60 && (360 - event.alpha) < 295){
         this.a=0;
         this.vibration.vibrate([1000,1000,1000,1000]);
-    }else if((360 — event.alpha) > 45 && (360 — event.alpha) < 310){
+    }else if((360 - event.alpha) > 45 && (360 - event.alpha) < 310){
         this.a=0;
         this.vibration.vibrate([1000,500,1000,500]);
     }else{
