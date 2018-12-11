@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Vibration } from '@ionic-native/vibration';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 import { InventoryProvider } from '../../providers/inventory/inventory';
+import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native/gyroscope';
 
 /**
  * Generated class for the VibrationPage page.
@@ -28,7 +29,8 @@ export class VibrationPage {
   public navParams: NavParams,
   private vibration: Vibration,
   private qrScanner: QRScanner,
-  private inventoryProvider :InventoryProvider) {
+  private inventoryProvider :InventoryProvider,
+  private gyroscope: Gyroscope) {
     this.title = 'Epreuve Démo'
   }
 
@@ -46,73 +48,71 @@ export class VibrationPage {
       alert("click");
     }
 
-  compassData: DeviceOrientationCompassHeading;
 
   VibrationPatternChanger() {
     console.log("Vibrate");      
-    this.scan(); console.log("Apres scan");   
-    
-    let options = {
-        frequency: 1500
-    }; // Update every 1.5 seconds
-    
-    let watchID = navigator.compass.watchHeading(onSuccess, onError, options);
-      
-    window.addEventListener("compassneedscalibration",function(event) {
-    // ask user to wave device in a figure-eight motion  
-       event.preventDefault();
-    }, true);
      
-    window.addEventListener("deviceorientation",processEvent, true);      
+    
+    let options: GyroscopeOptions = {
+        frequency: 1000
+    };
+
+    this.gyroscope.getCurrent(options)
+        .then((orientation: GyroscopeOrientation) => {
+            console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
+        })
+        .catch()
+
+
+    this.gyroscope.watch()
+       .subscribe((orientation: GyroscopeOrientation) => {
+          if(orientation.y < 0 && (orientation.x > -5 || orientation.x < 5)){
+            this.vibration.vibrate(0);
+            this.a=0;
+            this.isR=true;
+            this.isO=false;
+            this.isY=false;
+            this.isG=false;
+            this.vibration.vibrate([1000,4000,1000,4000]);
+         }else if(orientation.y < 0 && (orientation.x < -5 || orientation.x > 5)){
+            this.vibration.vibrate(0);
+            this.a=0;
+            this.isR=false;
+            this.isO=true;
+            this.isY=false;
+            this.isG=false;
+            this.vibration.vibrate([1000,3000,1000,3000]);       
+         }else if(orientation.y < -5 && (orientation.x > -5 || orientation.x < 5)){
+            this.vibration.vibrate(0);  
+            this.isR=false;
+            this.isO=true;
+            this.isY=false;
+            this.isG=false;
+            this.a=0;
+            this.vibration.vibrate([1000,2000,1000,2000]);         
+         }else if(orientation.y < -5 && (orientation.x > -5 || orientation.x < 5)){
+            this.vibration.vibrate(0);  
+            this.isR=false;
+            this.isO=false;
+            this.isY=true;
+            this.isG=false;
+            this.a=0;
+            this.vibration.vibrate([1000,1000,1000,1000]);         
+         }else if(orientation.y < -9 && (orientation.x < -5 || orientation.x > 5)){
+            this.vibration.vibrate(0);
+            this.isR=false;
+            this.isO=false;
+            this.isY=false;
+            this.isG=true;
+            this.a=this.a+1;
+          this.vibration.vibrate([1000, 100, 1000, 100]);
+          this.scan(); console.log("Apres scan");  
+        }            
+       });
+             
             
             
-    if((360 - event.alpha) > 150 && (360 - event.alpha) < 210){
-        this.a=0;
-        this.isR=true;
-        this.isO=false;
-        this.isY=false;
-        this.isG=false;
-        this.vibration.vibrate([1000,3000,1000,3000]);
-    }else if(data.headingAccuracy > 135 && (360 - event.alpha) < 225){
-        this.a=0;
-        this.vibration.vibrate([1000,2500,1000,2500]);
-    }else if((360 - event.alpha) > 120 && (360 - event.alpha) < 240){
-        this.a=0;                 
-        this.vibration.vibrate([1000,2000,1000,2000]);
-    }else if((360 - event.alpha) > 105 && (360 - event.alpha) < 255){
-        this.isR=false;
-        this.isO=true;
-        this.isY=false;
-        this.isG=false;
-        this.a=0;
-        this.vibration.vibrate([1000,1750,1000,1750]);
-    }else if((360 - event.alpha) > 90 && (360 - event.alpha) < 270){
-         
-        this.a=0;
-        this.vibration.vibrate([1000,1500,1000,1500]);
-    }else if((360 - event.alpha) > 75 && (360 - event.alpha) < 280){
-        this.isR=false;
-        this.isO=false;
-        this.isY=true;
-        this.isG=false;
-        this.a=0;
-        this.vibration.vibrate([1000,1250,1000,1250]);
-    }else if((360 - event.alpha) > 60 && (360 - event.alpha) < 295){
-        this.a=0;
-        this.vibration.vibrate([1000,1000,1000,1000]);
-    }else if((360 - event.alpha) > 45 && (360 - event.alpha) < 310){
-        this.a=0;
-        this.vibration.vibrate([1000,500,1000,500]);
-    }else{
-        this.isR=false;
-        this.isO=false;
-        this.isY=false;
-        this.isG=true;
-        this.a=this.a+1;
-      this.vibration.vibrate([1000, 100, 1000, 100]);
-      console.log("first");
-      console.log("second");
-    }            
+    
           
           
          
@@ -148,19 +148,7 @@ export class VibrationPage {
   hideCamera() {
     (window.document.querySelector('ion-app') as HTMLElement).classList.remove('cameraView');
   }
-    
-  onSuccess(heading) {
-    let element = document.getElementById('heading');
-    element.innerHTML = 'Heading: ' + heading.magneticHeading;
-  };
-    
-  onError(compassError) {
-        alert('Compass error: ' + compassError.code);
-  };
-    
-  processEvent(event) {
-    // process the event object
-  }
+
        }
 
 

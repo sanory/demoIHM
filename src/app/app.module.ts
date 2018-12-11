@@ -15,10 +15,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {Vibration} from '@ionic-native/vibration';
 import {DeviceOrientation, DeviceOrientationCompassHeading} from '@ionic-native/device-orientation';
+import { Gyroscope} from '@ionic-native/gyroscope';
 import { QRScanner } from '@ionic-native/qr-scanner';
 import { InventoryProvider } from '../providers/inventory/inventory';
 import { CameraPage } from '../pages/camera/camera';
 import { SimonPage } from '../pages/simon/simon';
+
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { SimonPage } from '../pages/simon/simon';
     Vibration,
     DeviceOrientation,
     QRScanner,
+    Gyroscope,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     InventoryProvider
   ]
