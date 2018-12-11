@@ -66,7 +66,7 @@ export class VibrationPage {
 
     this.gyroscope.watch()
        .subscribe((orientation: GyroscopeOrientation) => {
-          if(orientation.y < 0 && (orientation.x > -5 || orientation.x < 5)){
+          if(orientation.y < 0 && (orientation.x > -0.05 || orientation.x < 0.05)){
             this.vibration.vibrate(0);
             this.a=0;
             this.isR=true;
@@ -74,7 +74,7 @@ export class VibrationPage {
             this.isY=false;
             this.isG=false;
             this.vibration.vibrate([1000,4000,1000,4000]);
-         }else if(orientation.y < 0 && (orientation.x < -5 || orientation.x > 5)){
+         }else if(orientation.y < 0 && (orientation.x < -0.05 || orientation.x > 0.05)){
             this.vibration.vibrate(0);
             this.a=0;
             this.isR=false;
@@ -82,7 +82,7 @@ export class VibrationPage {
             this.isY=false;
             this.isG=false;
             this.vibration.vibrate([1000,3000,1000,3000]);       
-         }else if(orientation.y < -5 && (orientation.x > -5 || orientation.x < 5)){
+         }else if(orientation.y < -0.05 && (orientation.x > -0.05 || orientation.x < 0.05)){
             this.vibration.vibrate(0);  
             this.isR=false;
             this.isO=true;
@@ -90,7 +90,7 @@ export class VibrationPage {
             this.isG=false;
             this.a=0;
             this.vibration.vibrate([1000,2000,1000,2000]);         
-         }else if(orientation.y < -5 && (orientation.x > -5 || orientation.x < 5)){
+         }else if(orientation.y < -0.05 && (orientation.x > -0.05 || orientation.x < 0.05)){
             this.vibration.vibrate(0);  
             this.isR=false;
             this.isO=false;
@@ -98,7 +98,7 @@ export class VibrationPage {
             this.isG=false;
             this.a=0;
             this.vibration.vibrate([1000,1000,1000,1000]);         
-         }else if(orientation.y < -9 && (orientation.x < -5 || orientation.x > 5)){
+         }else if(orientation.y < -0.09 && (orientation.x < -0.05 || orientation.x > 0.05)){
             this.vibration.vibrate(0);
             this.isR=false;
             this.isO=false;
