@@ -17,8 +17,10 @@
 
 
 <ion-content padding class="b" style="background: none transparent;" >
-<button ion-button color="light" (click)="VibrationPatternChanger()" class="this">Lancer la recherche</button>
-<div class="red" [hidden]="!isR"></div>
+<button [hidden]="isRunning" ion-button color="light" (click)="beginPuzzle()" class="this">Lancer l'épreuve</button>
+  <button [hidden]="!isRunning" ion-button color="light" (click)="endPuzzle()" class="this"><ion-icon name="close-circle"></ion-icon></button>
+
+  <div class="red" [hidden]="!isR"></div>
 <div class="orange" [hidden]="!isO"></div>
 <div class="yellow" [hidden]="!isY"></div>
 <div class="green" [hidden]="!isG"></div>

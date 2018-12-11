@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Vibration } from '@ionic-native/vibration';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 import { InventoryProvider } from '../../providers/inventory/inventory';
-import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native/gyroscope';
 
 /**
  * Generated class for the VibrationPage page.
@@ -24,18 +23,20 @@ export class VibrationPage {
   isO=false;
   isY=false;
   isG=false;
+  isRunning = false;
 
-  constructor(public navCtrl: NavController,
+constructor(public navCtrl: NavController,
   public navParams: NavParams,
   private vibration: Vibration,
   private qrScanner: QRScanner,
-  private inventoryProvider :InventoryProvider,
-  private gyroscope: Gyroscope) {
+  private inventoryProvider :InventoryProvider) {
     this.title = 'Epreuve Démo'
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VibrationPage');
+
+
   }
   ionViewWillEnter() {
     this.showCamera();
@@ -48,76 +49,33 @@ export class VibrationPage {
       alert("click");
     }
 
+  beginPuzzle() {
+      this.isRunning = true;
+      launchePattern1();
+
+}
+
+  endPuzzle() {
+    this.isRunning = false;
+}
+
 
   VibrationPatternChanger() {
-    console.log("Vibrate");      
-     
-    
-    let options: GyroscopeOptions = {
-        frequency: 1000
-    };
+    console.log("Vibrate");
+    this.isRunning = true;
 
-    this.gyroscope.getCurrent(options)
-        .then((orientation: GyroscopeOrientation) => {
-            console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
-        })
-        .catch()
-
-
-    this.gyroscope.watch()
-       .subscribe((orientation: GyroscopeOrientation) => {
-          if(orientation.y < 0 && (orientation.x > -5 || orientation.x < 5)){
-            this.vibration.vibrate(0);
-            this.a=0;
-            this.isR=true;
-            this.isO=false;
-            this.isY=false;
-            this.isG=false;
-            this.vibration.vibrate([1000,4000,1000,4000]);
-         }else if(orientation.y < 0 && (orientation.x < -5 || orientation.x > 5)){
-            this.vibration.vibrate(0);
-            this.a=0;
-            this.isR=false;
-            this.isO=true;
-            this.isY=false;
-            this.isG=false;
-            this.vibration.vibrate([1000,3000,1000,3000]);       
-         }else if(orientation.y < -5 && (orientation.x > -5 || orientation.x < 5)){
-            this.vibration.vibrate(0);  
-            this.isR=false;
-            this.isO=true;
-            this.isY=false;
-            this.isG=false;
-            this.a=0;
-            this.vibration.vibrate([1000,2000,1000,2000]);         
-         }else if(orientation.y < -5 && (orientation.x > -5 || orientation.x < 5)){
-            this.vibration.vibrate(0);  
-            this.isR=false;
-            this.isO=false;
-            this.isY=true;
-            this.isG=false;
-            this.a=0;
-            this.vibration.vibrate([1000,1000,1000,1000]);         
-         }else if(orientation.y < -9 && (orientation.x < -5 || orientation.x > 5)){
-            this.vibration.vibrate(0);
-            this.isR=false;
-            this.isO=false;
-            this.isY=false;
-            this.isG=true;
-            this.a=this.a+1;
-          this.vibration.vibrate([1000, 100, 1000, 100]);
-          this.scan(); console.log("Apres scan");  
-        }            
-       });
-             
-            
-            
-    
-          
-          
-         
 }
-    
+
+launchPattern1() {
+
+}
+
+launchPattern2() {
+}
+
+launchPattern3() {
+}
+
     scan(){
         this.qrScanner.prepare()
             .then((status: QRScannerStatus) => {
