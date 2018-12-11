@@ -4,11 +4,13 @@
 
 <ion-content padding>
   <h1 align="center">Multiverse</h1>
-  <div class="buttons" >
-  <div class="first">
-  	<button ion-button color="light" (click)="goToPage()" style="height: 45px;margin: 45px 0px;position:relative;top:50%;left:38%;">Démo</button>
-  </div>
 
-  <div class="second"><button ion-button color="light" (click)="reset()" style="height: 45px;margin: 45px 0px;position:relative;top:50%;left:38%;" >Reset</button></div>
+  <div class="buttons" >
+
+    <div class="first"><button ion-button block large color="primary" (click)="goToPage()">Launch Demo</button></div>
+
+    <div class="second"><button ion-button block large color="secondary" (click)="reset()">Settings</button></div>
+
   </div>
+  
 </ion-content>
