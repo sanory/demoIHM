@@ -22,7 +22,7 @@
   <button [hidden]="!isRunning  || isQRSCAN" ion-button color="danger" (click)="endPuzzle()" class="this"><ion-icon name="close-circle"></ion-icon></button>
 
   <ion-card [hidden]="!isQRSCAN">Bien joué ! Scanner calibré et fonctionnel. Scannez le message...</ion-card>
-  <ion-card [hidden]="isRunning || isQRSCAN">Un message crypté ce trouve dans les parages... Vous devriez peut-être calibrer votre scanner pour le lire...</ion-card>
+  <ion-card [hidden]="isRunning || isQRSCAN">Un message crypté se trouve dans les parages... Vous devriez peut-être calibrer votre scanner pour le lire...</ion-card>
   <ion-card [hidden]="!isRunning || patternNo != 1">Séquence 1 en attente de configuration...</ion-card>
   <ion-card [hidden]="!isRunning || patternNo != 2">Séquence 1 correcte. Séquence 2 en attente de configuration</ion-card>
   <ion-card [hidden]="!isError">Erreur ! Configuration non reconnue. Veuillez réitérer l'opération.</ion-card>
