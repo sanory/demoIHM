@@ -31,12 +31,12 @@ export class SimonPage {
   success : boolean = false;
   fail : boolean = false;
   sequence : Array<Color> = new Array();
-  correctSequence : Array<Color> = [Color.Blue, Color.Green, Color.Green, Color.Red]
+  correctSequence : Array<Color> = [Color.Blue, Color.Green, Color.Green, Color.Red];
 
   addToSequence(col : number){
     this.sequence.push(col);
     this.readSequence();
-    this.vibration.vibrate([300]);
+    this.vibration.vibrate([80]);
     if(this.fail || this.success){
       this.success = false;
       this.fail = false;
@@ -66,15 +66,15 @@ export class SimonPage {
     }
 
     if(equals){
-        this.vibration.vibrate([1000,100,1000,100,1000,100,1000]);
+        this.vibration.vibrate([50,50,50,80,200,200,500]);
         this.winAlerte();
 //      this.success = true;
 //      this.fail = false;
-        
+
       this.sequence = [];
     }
     else{
-        this.vibration.vibrate([1000,500,1000]);
+        this.vibration.vibrate([200,50,200, 600]);
         this.looseAlerte();
 //      this.success = false;
 //      this.fail = true;
@@ -92,7 +92,7 @@ export class SimonPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SimonPage');
   }
-    
+
     winAlerte() {
     const alert = this.alertCtrl.create({
       title: 'Vous avez gagné!',
@@ -108,7 +108,7 @@ export class SimonPage {
     });
     alert.present();
   }
-    
+
     looseAlerte() {
     const alert = this.alertCtrl.create({
       title: 'Mauvaise combinaison...',
@@ -117,11 +117,11 @@ export class SimonPage {
     });
     alert.present();
   }
-    
+
     restart(){
         this.inventoryProvider.resetAcces();
         }
-    
+
 
 
 }

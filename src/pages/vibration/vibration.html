@@ -16,14 +16,24 @@
 </ion-header>
 
 
-<ion-content padding class="b" style="background: none transparent;" >
-<button [hidden]="isRunning" ion-button color="light" (click)="beginPuzzle()" class="this">Lancer l'épreuve</button>
-  <button [hidden]="!isRunning" ion-button color="light" (click)="endPuzzle()" class="this"><ion-icon name="close-circle"></ion-icon></button>
+<ion-content class="b" style="background-color:red;">
+
+
+  <button [hidden]="!isRunning  || isQRSCAN" ion-button color="danger" (click)="endPuzzle()" class="this"><ion-icon name="close-circle"></ion-icon></button>
+
+  <ion-card [hidden]="!isQRSCAN">Bien joué ! Scanner calibré et fonctionnel. Scannez le message...</ion-card>
+  <ion-card [hidden]="isRunning || isQRSCAN">Un message crypté ce trouve dans les parages... Vous devriez peut-être calibrer votre scanner pour le lire...</ion-card>
+  <ion-card [hidden]="!isRunning || patternNo != 1">Séquence 1 en attente de configuration...</ion-card>
+  <ion-card [hidden]="!isRunning || patternNo != 2">Séquence 1 correcte. Séquence 2 en attente de configuration</ion-card>
+  <ion-card [hidden]="!isError">Erreur ! Configuration non reconnue. Veuillez réitérer l'opération.</ion-card>
+
+  <button [hidden]="isRunning || isQRSCAN" ion-button color="primary" (click)="beginPuzzle()" class="config-btn">Lancer le calibrage</button>
+  <button [disabled]="isPattern" (tap)="tapEvent($event)" (press)="pressEvent($event)" [hidden]="!isRunning || isPattern || isQRSCAN" ion-button round outline class="config-btn">Bouton de configuration</button>
 
   <div class="red" [hidden]="!isR"></div>
-<div class="orange" [hidden]="!isO"></div>
-<div class="yellow" [hidden]="!isY"></div>
-<div class="green" [hidden]="!isG"></div>
+  <div class="orange" [hidden]="!isO"></div>
+  <div class="yellow" [hidden]="!isY"></div>
+  <div class="green" [hidden]="!isG"></div>
 
 
 </ion-content>

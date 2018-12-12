@@ -23,6 +23,6 @@ export class TabsPage {
 
 
   constructor() {
-    this.title = 'Epreuve de démo';
+    this.title = 'L\'énigme du vieux monsieur Simon...';
   }
 }
